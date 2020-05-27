@@ -1,2 +1,2 @@
-# TestTask
-TestTask class is main solution. SubNetworkTree was created just for comparison.
+# Network
+Network class is main solution. SubNetworkTree was created just for comparison.

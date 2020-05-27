@@ -4,7 +4,7 @@ import java.util.Set;
 
 // more effective than tree method, if we want to find subnet
 // then if tree has already created, search will be more effective with tree
-public class TestTask {
+public class Network {
 
     public static final String MASK = "%s.%s.%s.%s";
     private static final String SUB_MASK = "XXX";

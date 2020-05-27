@@ -5,61 +5,61 @@ import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TestTaskTest {
+class SubnetCalculatingTest {
 
     @Test
     void getSubNetForOneAddress() {
         String ip1 = "192.168.1.1";
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(ip1)));
         assertThrows(IllegalArgumentException.class, tt::getSubNet);
     }
 
     @Test
     void testTaskRandom3rd() {
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(generateIps(10000, false, false, true))));
         assertEquals("192.100.XXX.XXX", tt.getSubNet());
     }
 
     @Test
     void testTaskRandom2nd3rd() {
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(generateIps(10000, false, true, true))));
         assertEquals("192.XXX.XXX.XXX", tt.getSubNet());
     }
 
     @Test
     void testTaskRandomAll() {
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(generateIps(10000, true, true, true))));
         assertEquals("XXX.XXX.XXX.XXX", tt.getSubNet());
     }
 
     @Test
     void testTaskRandom1st3rd() {
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(generateIps(10000, true, false, true))));
         assertEquals("XXX.XXX.XXX.XXX", tt.getSubNet());
     }
 
     @Test
     void testTaskRandom1st2nd() {
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(generateIps(10000, true, true, false))));
         assertEquals("XXX.XXX.XXX.XXX", tt.getSubNet());
     }
 
     @Test
     void testTasRandom2nd() {
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(generateIps(10000, false, true, false))));
         assertEquals("192.XXX.XXX.XXX", tt.getSubNet());
     }
 
     @Test
     void testTaskNoRandom() {
-        TestTask tt = new TestTask();
+        Network tt = new Network();
         tt.setIpSet(new HashSet<>(Arrays.asList(generateIps(10000, false, false, false))));
         assertEquals("192.100.99.XXX", tt.getSubNet());
     }
